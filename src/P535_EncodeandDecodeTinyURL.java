@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class EncodeandDecodeTinyURL {
+public class P535_EncodeandDecodeTinyURL {
     public class Codec {
 
         private Map<String, String> urlMap = new HashMap<>();

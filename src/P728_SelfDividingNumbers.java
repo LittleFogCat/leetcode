@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelfDividingNumbers {
+public class P728_SelfDividingNumbers {
     class Solution {
         public List<Integer> selfDividingNumbers(int left, int right) {
             List<Integer> res = new ArrayList<>();

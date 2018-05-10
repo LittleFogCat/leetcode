@@ -1,4 +1,4 @@
-public class BattleshipsInABoard {
+public class P419_BattleshipsInABoard {
 
     class Solution {
 

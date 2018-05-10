@@ -1,4 +1,4 @@
-public class MergeTwoBinaryTrees {
+public class P617_MergeTwoBinaryTrees {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {

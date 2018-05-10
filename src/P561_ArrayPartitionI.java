@@ -1,4 +1,4 @@
-public class ArrayPartitionI {
+public class P561_ArrayPartitionI {
     
     class Solution {
         public int arrayPairSum(int[] nums) {

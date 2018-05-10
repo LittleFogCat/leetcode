@@ -1,4 +1,4 @@
-public class CountingBits {
+public class P338_CountingBits {
     class Solution {
         public int[] countBits(int num) {
             int[] res = new int[num + 1];

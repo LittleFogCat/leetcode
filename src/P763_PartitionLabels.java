@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PartitionLabels {
+public class P763_PartitionLabels {
     class Solution {
         public List<Integer> partitionLabels(String S) {
 

@@ -1,4 +1,4 @@
-public class ComplexNumberMultiplication {
+public class P537_ComplexNumberMultiplication {
     class Solution {
         public String complexNumberMultiply(String a, String b) {
             String[] aa = a.split("\\+");

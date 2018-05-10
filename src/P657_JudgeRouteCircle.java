@@ -1,4 +1,4 @@
-public class JudgeRouteCircle {
+public class P657_JudgeRouteCircle {
     class Solution {
 
         public boolean judgeCircle(String moves) {

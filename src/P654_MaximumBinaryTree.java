@@ -1,4 +1,4 @@
-public class MaximumBinaryTree {
+public class P654_MaximumBinaryTree {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {

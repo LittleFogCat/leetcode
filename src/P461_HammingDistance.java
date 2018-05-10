@@ -1,4 +1,4 @@
-public class HammingDistance {
+public class P461_HammingDistance {
     public class Solution {
         public int hammingDistance(int x, int y) {
             int d = 0;
