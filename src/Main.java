@@ -1,12 +1,20 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String args[]) {
-        System.out.println("Hello, world!");
+        int[][] ts = {{3, 0, 8, 4},
+                {2, 4, 5, 7},
+                {9, 2, 6, 3},
+                {0, 3, 1, 0}};
 
-        int[][] ts = {{8, 4, 8, 7},
-                {7, 4, 7, 7},
-                {9, 4, 8, 7},
-                {3, 3, 3, 3}};
+        System.out.println(new P807_MaxIncreasetoKeepCitySkyline().new Solution().maxIncreaseKeepingSkyline(ts));
 
-        System.out.println(ts[1][3]);
+        int[][] ts2 = {
+                {57, 86, 30, 56},
+                {59, 60, 83, 95},
+                {83, 37, 38, 98},
+                {15, 39, 56, 86}
+        };
+        System.out.println(new P807_MaxIncreasetoKeepCitySkyline().new Solution().maxIncreaseKeepingSkyline(ts2));
     }
 }
