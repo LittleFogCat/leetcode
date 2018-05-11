@@ -1,5 +1,7 @@
 import extra.E01_FullPermutation;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Main {
@@ -24,9 +26,48 @@ public class Main {
 //        float use = System.currentTimeMillis() - start;
 //        use /= 1000;
 //        System.out.println(use + " allp = " + allp.size());
+//        long start = System.currentTimeMillis();
+//        Set<String> set = new E01_FullPermutation().new Solution("123456789").allP();
+//        System.out.println(set.size());
+//        System.out.println("use " + (System.currentTimeMillis() - start) + "ms");
+
+//        new P804_UniqueMorseCodeWords().printMorse();
+
+//        int[][] graph = {{1, 2}, {3}, {3}, {}};
+//        System.out.println(new P797_AllPathsFromSourcetoTarget().new Solution().allPathsSourceTarget(graph));
+
+//        Map<String, Integer> map = new HashMap<>();
+//        System.out.println(map.get("1"));
+
+        String s = "123 jifewofji";
+        long t1 = timecountIterable(() -> {
+            String[] split = s.split(" ");
+            int I = Integer.parseInt(split[0]);
+            String S = split[1];
+        }, 10000000);
+
+        long t2 = timecountIterable(() -> {
+            int index = s.indexOf(" ");
+            int I = Integer.parseInt(s.substring(0, index));
+            String S = s.substring(index + 1);
+        }, 10000000);
+
+        System.out.println(t1 + ", " + t2);
+    }
+
+    private static long timecount(Runnable runnable) {
         long start = System.currentTimeMillis();
-        Set<String> set = new E01_FullPermutation().new Solution("123456789").allP();
-        System.out.println(set.size());
-        System.out.println("use " + (System.currentTimeMillis() - start) + "ms");
+        runnable.run();
+        long end = System.currentTimeMillis();
+        return end - start;
+    }
+
+    private static long timecountIterable(Runnable runnable, int count) {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < count; i++) {
+            runnable.run();
+        }
+        long end = System.currentTimeMillis();
+        return end - start;
     }
 }
