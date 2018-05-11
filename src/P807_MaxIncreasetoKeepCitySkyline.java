@@ -1,7 +1,7 @@
 
 public class P807_MaxIncreasetoKeepCitySkyline {
-    // TODO: 2018/5/10 There should be a solution that only pass through the array only once
-    class Solution {
+    // TODO: 2018/5/10 There may be a solution that only pass through the array only once, but how?
+    class Solution1 {
         private int[] rowMax; // max row contains max nums from each column
         private int[] columnMax; // max column contains max nums from each row
 
@@ -34,6 +34,47 @@ public class P807_MaxIncreasetoKeepCitySkyline {
                     } else {
                         increase += cm - aInt;
                     }
+                }
+            }
+
+            return increase;
+        }
+    }
+
+    /**
+     * We can calculate the current sum of all buildings and target sum of all buildings,
+     * then the diff of them is increase.
+     * Actually this solution is almost the same with Solution1. MMP.
+     */
+    class Solution2 {
+        private int[] rowMax; // max row contains max nums from each column
+        private int[] columnMax; // max column contains max nums from each row
+
+        public int maxIncreaseKeepingSkyline(int[][] grid) {
+            rowMax = new int[grid[0].length];
+            columnMax = new int[grid.length];
+            int increase = 0;
+            for (int i = 0; i < grid.length; i++) {
+                int aRow[] = grid[i];
+
+                for (int j = 0; j < aRow.length; j++) {
+                    int aInt = aRow[j]; // a int at (j, i), no.i row and no.j column
+                    increase += aInt;
+                    if (aInt > columnMax[j]) {
+                        columnMax[j] = aInt;
+                    }
+                    if (aInt > rowMax[i]) {
+                        rowMax[i] = aInt;
+                    }
+                }
+            }
+            increase = -increase;
+
+            for (int i = 0; i < grid.length; i++) {
+                int aRow[] = grid[i];
+
+                for (int j = 0; j < aRow.length; j++) {
+                    increase += columnMax[i] > rowMax[j] ? rowMax[j] : columnMax[i];
                 }
             }
 
