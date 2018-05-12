@@ -4,8 +4,8 @@ public class P461_HammingDistance {
             int d = 0;
             int r = x ^ y;
             while (r != 0) {
-                d += r % 2;
-                r /= 2;
+                d += r & 1;
+                r >>= 1;
             }
             return d;
         }

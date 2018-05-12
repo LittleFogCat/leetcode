@@ -70,11 +70,14 @@ public class Main {
 //        s.toCharArray()[0] = 3;
 //        System.out.println(s);
 
-        String S = "kqep";
-        String T = "pekeq";
-        System.out.println("S: " + S + ", T: " + T);
-        String res = new P791_CustomSortString().new Solution().customSortString(S, T);
-        System.out.println("Result: " + res);
+//        String S = "kqep";
+//        String T = "pekeq";
+//        System.out.println("S: " + S + ", T: " + T);
+//        String res = new P791_CustomSortString().new Solution().customSortString(S, T);
+//        System.out.println("Result: " + res);
+
+        int d = new P461_HammingDistance().new Solution().hammingDistance(3, 1);
+        System.out.println(d);
     }
 
     private static long timecount(Runnable runnable) {
