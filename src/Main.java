@@ -155,9 +155,11 @@ public class Main {
 //            }
 //            System.out.println("max = " + max);
 //        });
-        String ops[] = {"5", "2", "2", "2", "2", "2", "2", "2", "2", "C", "D", "C", "C", "C", "C", "C", "C"};
-        int sum = new P682_BaseballGame().new Solution().calPoints(ops);
-        System.out.println(sum);
+//        String ops[] = {"5", "2", "2", "2", "2", "2", "2", "2", "2", "C", "D", "C", "C", "C", "C", "C", "C"};
+//        int sum = new P682_BaseballGame().new Solution().calPoints(ops);
+//        System.out.println(sum);
+
+
     }
 
     private static int max;
