@@ -10,7 +10,6 @@ public class P463_IslandPerimeter {
                     int aInt = aRow[j];
                     // 考虑边界
                     if (aInt == 1) {
-                        islandPerimeter +=( i == 0 ? 1 : 0) +(j == 0 ? 1 : 0)+(i == rows-1? 1 : 0)+(j== ? 1 : 0);
                         if (i == 0) {
                             islandPerimeter++;
                         }
