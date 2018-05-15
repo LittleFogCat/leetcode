@@ -97,7 +97,7 @@ while(i != 1){
 事实上，map的类型使用int[]过于浪费了，这也是我考虑的疏漏。如果使用byte[]或者boolean[]的话，就是最快的答案了。（当然实际情况中更多还是使用Set吧，毕竟不是所有情况下都会给出明确的边界条件的）
 
 
-####561. Array Partition I
+#### 561. Array Partition I
 > Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), ..., (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
 
 >Example 1:
@@ -179,7 +179,7 @@ public int arrayPairSum(int[] nums) {
 ```
 
 
-####760. Find Anagram Mappings
+#### 760. Find Anagram Mappings
 >Given two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
 
 >We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j.
