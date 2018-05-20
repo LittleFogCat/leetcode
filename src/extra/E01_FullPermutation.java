@@ -36,4 +36,8 @@ public class E01_FullPermutation {
         }
     }
 
+    public static void main(String[] args) {
+        System.out.println(new E01_FullPermutation().new Solution("abc123").allP());
+    }
+
 }
