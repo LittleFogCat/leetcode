@@ -1,4 +1,4 @@
-public class P53_MaximumSubarray {
+public class P053_MaximumSubarray {
     class Solution {
         public int maxSubArray(int[] nums) {
             int max = nums[nums.length - 1];
