@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class P894_AllPossibleFullBinaryTrees {
@@ -11,33 +9,47 @@ public class P894_AllPossibleFullBinaryTrees {
     }
 
     class Solution {
-        List<TreeNode> result = new ArrayList<>();
 
-        public List<TreeNode> allPossibleFBT(int N) {
-            if (N % 2 == 0) return result;
-            if (N == 1) {
-                result.add(new TreeNode(0));
-                return result;
-            }
-            N--;
-
-            for (int i = 1; i < N; i += 2) {
-                int leftNodes = i;
-                int rightNodes = N - i - 1;
-                List<TreeNode> left = allPossibleFBT(leftNodes);
-                List<TreeNode> right = allPossibleFBT(rightNodes);
-
-                for (TreeNode leftNode : left) {
-                    for (TreeNode rightNode : right) {
-                        TreeNode root = new TreeNode(0);
-                        root.left = leftNode;
-                        root.right = rightNode;
-                        result.add(root);
+        public List<TreeNode> allPossibleFBT(int n) {
+            List<TreeNode> ret = new ArrayList<>();
+            if (n == 1) {
+                // Exactly.
+                ret.add(new TreeNode(0));
+                return ret;
+            } else {
+                /*
+                 * For a given number n, exclude the root node, there's n-1 nodes left.
+                 *
+                 * Because it's a FBT, so the son nodes is FBT too, and it must contains
+                 * odd number of nodes.
+                 *
+                 * That is, root.left = allPossibleFBT(1) and root.right = allPossibleFBT(n - 2),
+                 * or root.left = allPossibleFBT(3) and root.right = allPossibleFBT(n - 4),
+                 * ...
+                 * or root.left = allPossibleFBT(n - 2) and root.right = allPossibleFBT(1).
+                 *
+                 * Combining all the possible situation, there's the final result.
+                 */
+                for (int i = 1; i <= (n - 1) / 2; i += 2) {
+                    List<TreeNode> left = allPossibleFBT(i);
+                    List<TreeNode> right = allPossibleFBT(n - 1 - i);
+                    for (TreeNode leftNode : left) {
+                        for (TreeNode rightNode : right) {
+                            TreeNode node = new TreeNode(0);
+                            node.left = leftNode;
+                            node.right = rightNode;
+                            ret.add(node);
+                            if (i != (n - 1) / 2) {
+                                TreeNode node1 = new TreeNode(0);
+                                node1.left = rightNode;
+                                node1.right = leftNode;
+                                ret.add(node1);
+                            }
+                        }
                     }
                 }
             }
-            return result;
+            return ret;
         }
-
     }
 }
