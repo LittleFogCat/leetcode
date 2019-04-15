@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import sun.plugin2.gluegen.runtime.CPU;
+
+import java.util.*;
 
 public class Main {
     public static void main(String args[]) {
@@ -158,8 +157,15 @@ public class Main {
 //        String ops[] = {"5", "2", "2", "2", "2", "2", "2", "2", "2", "C", "D", "C", "C", "C", "C", "C", "C"};
 //        int sum = new P682_BaseballGame().new Solution().calPoints(ops);
 //        System.out.println(sum);
-
-
+        int[] source = {1, 2};
+        timecountLoop(() -> {
+            int[] copy = Arrays.copyOf(source, 2);
+        }, 100000000);
+        timecountLoop(() -> {
+            int[] copy = new int[2];
+            copy[0] = source[0];
+            copy[1] = source[1];
+        }, 100000000);
     }
 
     private static int max;
