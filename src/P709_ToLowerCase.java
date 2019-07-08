@@ -1,7 +1,4 @@
 public class P709_ToLowerCase {
-    public static void main(String[] args) {
-
-    }
 
     class Solution {
         public String toLowerCase(String str) {

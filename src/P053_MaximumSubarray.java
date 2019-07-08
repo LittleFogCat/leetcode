@@ -43,7 +43,7 @@ public class P053_MaximumSubarray {
     }
 
     public static void main(String[] args) {
-        Solution1 s1 = new P53_MaximumSubarray().new Solution1();
+        Solution1 s1 = new P053_MaximumSubarray().new Solution1();
         int i = s1.maxSubArray(new int[]{-1, 0});
         System.out.println(i);
     }

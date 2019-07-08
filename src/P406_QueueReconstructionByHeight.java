@@ -15,7 +15,4 @@ public class P406_QueueReconstructionByHeight {
             return result.toArray(new int[0][]);
         }
     }
-
-    public static void main(String[] args) {
-    }
 }

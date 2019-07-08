@@ -1,8 +1,9 @@
-import sun.plugin2.gluegen.runtime.CPU;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
-import java.util.*;
-
-public class Main {
+public class MainTest {
     public static void main(String args[]) {
 //        int[][] ts = {{3, 0, 8, 4},
 //                {2, 4, 5, 7},
