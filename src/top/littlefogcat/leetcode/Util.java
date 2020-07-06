@@ -24,11 +24,18 @@ public class Util {
 
     public static class ConvertQuoteSymbol {
 
+        /**
+         * 把方括号形式的数组转化成花括号的数组
+         */
+        public static String convertFangkuohaoToHuakuohao(String orig) {
+            orig = orig.replace('[', '{');
+            orig = orig.replace(']', '}');
+            return orig;
+        }
+
         public static void main(String[] args) {
-            String arr = "[[4,7,11],[7,11,16],[10,11,20]]";
-            arr = arr.replace('[', '{');
-            arr = arr.replace(']', '}');
-            System.out.println(arr);
+            String arr = "[-1, 0, 1, 2, -1, -4]";
+            System.out.println(convertFangkuohaoToHuakuohao(arr));
         }
     }
 }
