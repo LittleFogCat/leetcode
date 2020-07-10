@@ -31,23 +31,6 @@ public class P15_3Sum {
         return ts;
     }
 
-    public List<List<Integer>> threeSum1(int[] nums) {
-        List<List<Integer>> ts = new ArrayList<>();
-        if (nums == null || nums.length < 3) return ts;
-        Arrays.sort(nums);
-
-        Map<Integer, Integer> countMap = new HashMap<>();
-        Map<Integer, Integer> indexMap = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            int num = nums[i];
-            indexMap.putIfAbsent(num, i);
-            int count = countMap.getOrDefault(num, 0);
-            countMap.put(num, count++);
-        }
-
-        return ts;
-    }
 
 
 }

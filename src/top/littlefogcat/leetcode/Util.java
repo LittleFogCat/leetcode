@@ -22,6 +22,21 @@ public class Util {
         return i;
     }
 
+    /**
+     * 将数组转换为链表
+     */
+    public static ListNode getLinkedListFromArray(int... arr) {
+        if (arr == null || arr.length == 0) return null;
+        ListNode head = new ListNode(arr[0]);
+        ListNode node = head;
+        int i = 0;
+        while (++i < arr.length) {
+            node.next = new ListNode(arr[i]);
+            node = node.next;
+        }
+        return head;
+    }
+
     public static class ConvertQuoteSymbol {
 
         /**
