@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Util {
 
@@ -96,6 +98,29 @@ public class Util {
         return a;
     }
 
+    public static ListNode arrayToLinkedList(int[] arr) {
+        ListNode head = new ListNode(arr[0]);
+        ListNode p = head;
+        for (int i = 1; i < arr.length; i++) {
+            p.next = new ListNode(arr[i]);
+            p = p.next;
+        }
+
+        return head;
+    }
+
+    public static List<List<Integer>> arrToList(int[][] arr) {
+        List<List<Integer>> r = new ArrayList<>();
+        for (int[] ints : arr) {
+            List<Integer> list = new ArrayList<>();
+            for (int anInt : ints) {
+                list.add(anInt);
+            }
+            r.add(list);
+        }
+        return r;
+    }
+
     public static class ConvertQuoteSymbol {
 
         /**
@@ -108,8 +133,22 @@ public class Util {
         }
 
         public static void main(String[] args) {
-            String arr = "[[-2,-3,3],[-5,-10,1],[10,30,-5]]";
+            String arr = "[['X','O','X','O','X','O'],['O','X','O','X','O','X'],['X','O','X','O','X','O'],['O','X','O','X','O','X']]";
             System.out.println(convertFangkuohaoToHuakuohao(arr));
+        }
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        System.out.println("----- printMatrix -----");
+        for (int[] line : matrix) {
+            System.out.println(Arrays.toString(line));
+        }
+    }
+
+    public static void printMatrix(char[][] matrix) {
+        System.out.println("----- printMatrix -----");
+        for (char[] line : matrix) {
+            System.out.println(Arrays.toString(line));
         }
     }
 }

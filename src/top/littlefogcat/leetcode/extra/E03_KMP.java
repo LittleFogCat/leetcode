@@ -2,7 +2,6 @@ package top.littlefogcat.leetcode.extra;
 
 import java.util.Arrays;
 
-@SuppressWarnings("StatementWithEmptyBody")
 public class E03_KMP {
 
     int kmp(String s, String p) {
@@ -23,25 +22,31 @@ public class E03_KMP {
         return j == p.length() ? i - j : -1;
     }
 
-    int[] next(char[] s) {
-        int[] next = pmt(s);
-        if (next.length - 1 >= 0) System.arraycopy(next, 0, next, 1, next.length - 1);
+    int[] next(char[] p) {
+        int[] next = pmt(p);
+        System.out.println("p: " + Arrays.toString(p));
+        System.out.println("pmt: " + Arrays.toString(next));
+        if (next.length > 0) System.arraycopy(next, 0, next, 1, next.length - 1);
         next[0] = 0;
         return next;
     }
 
-    /**
-     * -     i
-     * -     ↓
-     * a a b c
-     * a b c a
-     */
-    int[] pmt(char[] s) {
-        int[] pmt = new int[s.length];
+    // 双指针计算pmt数组
+    int[] pmt(char[] p) {
+        int[] pmt = new int[p.length];
         pmt[0] = 0;
-        for (int i = 1; i < s.length; i++) {
-            if (s[i] == s[pmt[i - 1]]) {
-                pmt[i] = pmt[i - 1] + 1;
+        // 双指针，i在j右边
+        for (int i = 1, j = 0; i < p.length; ) {
+            if (j == 0 && p[i] != p[j]) {
+                pmt[i] = 0;
+                i++;
+            } else if (p[i] == p[j]) {
+                pmt[i] = j + 1;
+                i++;
+                j++;
+            } else { // p[i]!= p[j] && j!= 0
+                // 在i、j处失配，但是之前的都是匹配的
+                j = pmt[j - 1];
             }
         }
         return pmt;
@@ -49,8 +54,8 @@ public class E03_KMP {
 
     public static void main(String[] args) {
         E03_KMP e03 = new E03_KMP();
-        String s = "abababca";
-        String p = "cb";
+        String s = "aabaaabaaac";
+        String p = "aabaaac";
         System.out.println(e03.kmp(s, p));
     }
 }
