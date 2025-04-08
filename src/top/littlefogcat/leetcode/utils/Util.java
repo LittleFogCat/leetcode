@@ -1,4 +1,6 @@
-package top.littlefogcat.leetcode;
+package top.littlefogcat.leetcode.utils;
+
+import top.littlefogcat.leetcode.ListNode;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +15,7 @@ public class Util {
         arr[q] = t;
     }
 
-    public static void assertValue(Object o1, Object o2) {
+    public static void assertEqual(Object o1, Object o2) {
         if (Objects.equals(o1, o2)) return;
         throw new AssertionError("Not Equal: " + "val1 = " + o1 + ", val2 = " + o2);
     }
@@ -68,7 +70,7 @@ public class Util {
         System.out.println(sb);
     }
 
-    public static long timeCounter(Runnable runnable) {
+    public static long countTime(Runnable runnable) {
         long start = System.currentTimeMillis();
         runnable.run();
         long end = System.currentTimeMillis();
@@ -82,7 +84,7 @@ public class Util {
         return end - start;
     }
 
-    public static long timeCounter(Runnable runnable, int times) {
+    public static long countTime(Runnable runnable, int times) {
         long start = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
             runnable.run();
@@ -246,6 +248,21 @@ public class Util {
         return max;
     }
 
+    public static final int BLACK = 30;
+    public static final int RED = 31;
+    public static final int GREEN = 32;
+    public static final int YELLOW = 33;
+    public static final int BLUE = 34;
+    public static final int PURPLE = 35;
+    public static final int CYAN = 36;
+    public static final int WHITE = 37;
+
+    public static void printlnWithColor(String s, int color) {
+        System.out.println("\033[1;" + color + "m" + s + "\033[0m ");
+    }
+    public static void printWithColor(String s, int color) {
+        System.out.print("\033[1;" + color + "m" + s + "\033[0m ");
+    }
 
     public static class ConvertQuoteSymbol {
 

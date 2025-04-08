@@ -3,7 +3,8 @@ package top.littlefogcat.leetcode.structs.unionfind;
 import java.util.*;
 
 /**
- * 并查集
+ * 使用数组实现并查集，必须初始化数组长度且元素类型为int。
+ * 使用条件：元素个数较小，且为整型。
  */
 public class UnionFindArray {
     protected int size;

@@ -1,5 +1,7 @@
 package top.littlefogcat.leetcode;
 
+import top.littlefogcat.leetcode.utils.Util;
+
 import java.util.*;
 
 public class P5638_MaximumNumberOfEatenApples {
@@ -143,9 +145,9 @@ public class P5638_MaximumNumberOfEatenApples {
 
     public static void main(String[] args) {
         P5638_MaximumNumberOfEatenApples p = new P5638_MaximumNumberOfEatenApples();
-        Util.assertValue(7, p.eatenApples(arr(1, 2, 3, 5, 2), arr(3, 2, 1, 4, 2)));
-        Util.assertValue(20000, p.eatenApples(arr(20000), arr(20000)));
-        Util.assertValue(3, p.eatenApples(arr(2, 2), arr(5, 1)));
+        Util.assertEqual(7, p.eatenApples(arr(1, 2, 3, 5, 2), arr(3, 2, 1, 4, 2)));
+        Util.assertEqual(20000, p.eatenApples(arr(20000), arr(20000)));
+        Util.assertEqual(3, p.eatenApples(arr(2, 2), arr(5, 1)));
 //        List<Apple> list = new ArrayList<>();
 //        list.add(new Apple(9, 1));
 //        list.add(new Apple(7, 1));

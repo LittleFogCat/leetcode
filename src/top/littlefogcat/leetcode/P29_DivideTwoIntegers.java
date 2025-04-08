@@ -2,6 +2,9 @@ package top.littlefogcat.leetcode;
 
 public class P29_DivideTwoIntegers {
 
+    /**
+     * 思路：如何用二进制表达数？
+     */
     public int divide(int dividend, int divisor) {
         if (dividend == 0) return 0;
         if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE; // 溢出

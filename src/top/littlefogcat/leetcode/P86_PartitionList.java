@@ -1,5 +1,7 @@
 package top.littlefogcat.leetcode;
 
+import top.littlefogcat.leetcode.utils.Util;
+
 public class P86_PartitionList {
     public ListNode partition(ListNode head, int x) {
         if (head == null || head.next == null) return head;

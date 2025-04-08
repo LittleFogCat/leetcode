@@ -1,6 +1,6 @@
 package top.littlefogcat.leetcode;
 
-import static top.littlefogcat.leetcode.Util.arr;
+import static top.littlefogcat.leetcode.utils.Util.arr;
 
 public class P4_MedianOfTwoSortedArrays {
     /**

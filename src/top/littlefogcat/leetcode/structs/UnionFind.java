@@ -7,83 +7,64 @@ import java.util.Set;
 
 /**
  * 并查集
+ *
+ * @param <T> 节点类型
  */
 public class UnionFind<T> {
-    public int size;
-    private final Map<T, T> parent = new HashMap<>();
+    protected int size;
+    protected final Map<T, T> parent = new HashMap<>();
 
+    public UnionFind() {
+    }
+
+    /**
+     * @param orig 原始数据集
+     */
     public UnionFind(T[] orig) {
         for (T t : orig) {
-            parent.put(t, t); // 作为根节点
+            parent.put(t, t); // 每个节点作为一个根节点
         }
         size = orig.length;
     }
 
-    public void union(T t1, T t2) {
-        System.out.println("union: " + t1 + ", " + t2);
-        T root1 = findRoot(t1);
-        T root2 = findRoot(t2);
+    /**
+     * 合并两个节点所在的树
+     */
+    public void union(T node1, T node2) {
+//        System.out.println("union: " + node1 + ", " + node2);
+        T root1 = find(node1);
+        T root2 = find(node2);
         if (root1 != root2) {
-            parent.put(root2, root1);
+            parent.put(root2, root1); // 使树2成为树1子树
             size--;
         }
     }
 
-    private T findRoot(T t) {
-        if (!parent.containsKey(t)) return null;
-        while (parent.get(t) != t) t = parent.get(t);
-        return t;
+    /**
+     * 查询节点node所在树的根节点
+     */
+    public T find(T node) {
+        if (!parent.containsKey(node)) {
+            parent.put(node, node);
+            size++;
+            return node;
+        }
+        while (parent.get(node) != node) node = parent.get(node);
+        return node;
+    }
+
+    public int size() {
+        return size;
     }
 
     @Override
     public String toString() {
         Map<T, Set<T>> map = new HashMap<>(); // root - Set
         for (T item : parent.keySet()) {
-            T root = findRoot(item);
+            T root = find(item);
             Set<T> set = map.computeIfAbsent(root, T -> new HashSet<>());
             set.add(item);
         }
         return map.values().toString();
-    }
-
-    public static void main(String[] args) {
-        UnionFind<Integer> uf = new UnionFind<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
-        System.out.println(uf);
-        uf.union(1, 2);
-        System.out.println(uf);
-        uf.union(3, 4);
-        System.out.println(uf);
-        uf.union(4, 5);
-        System.out.println(uf);
-        uf.union(6, 8);
-        System.out.println(uf);
-        uf.union(6, 2);
-        System.out.println(uf);
-    }
-
-    public static class UnionFind0 {
-        public int size;
-        private final Map<Integer, Integer> parent = new HashMap<>();
-
-        public UnionFind0(int[] orig) {
-            for (int t : orig) {
-                parent.put(t, t); // 作为根节点
-            }
-            size = orig.length;
-        }
-
-        public void union(int i1, int i2) {
-            int root1 = find(i1);
-            int root2 = find(i2);
-            if (root1 != root2) {
-                parent.put(root2, root1);
-                size--;
-            }
-        }
-
-        private int find(int i) {
-            while (parent.get(i) != i) i = parent.get(i);
-            return i;
-        }
     }
 }

@@ -1,5 +1,7 @@
 package top.littlefogcat.leetcode;
 
+import top.littlefogcat.leetcode.utils.Util;
+
 public class P738_MonotoneIncreasingDigits {
     public int monotoneIncreasingDigits1(int N) {
         for (int i = N; i > 0; i--) {
@@ -69,10 +71,10 @@ public class P738_MonotoneIncreasingDigits {
 
     public static void main(String[] args) {
         P738_MonotoneIncreasingDigits p = new P738_MonotoneIncreasingDigits();
-        Util.assertValue(5, p.monotoneIncreasingDigits3(5));
-        Util.assertValue(9, p.monotoneIncreasingDigits3(10));
-        Util.assertValue(69999999, p.monotoneIncreasingDigits3(77761672));
-        Util.assertValue(699999999, p.monotoneIncreasingDigits3(747131058));
-        Util.assertValue(6669, p.monotoneIncreasingDigits3(6671));
+        Util.assertEqual(5, p.monotoneIncreasingDigits3(5));
+        Util.assertEqual(9, p.monotoneIncreasingDigits3(10));
+        Util.assertEqual(69999999, p.monotoneIncreasingDigits3(77761672));
+        Util.assertEqual(699999999, p.monotoneIncreasingDigits3(747131058));
+        Util.assertEqual(6669, p.monotoneIncreasingDigits3(6671));
     }
 }

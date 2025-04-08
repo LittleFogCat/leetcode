@@ -1,5 +1,7 @@
 package top.littlefogcat.leetcode;
 
+import top.littlefogcat.leetcode.utils.Util;
+
 import java.util.Arrays;
 
 public class P1621_NumberOfSetsOfKNonOverlappingLineSegments {
@@ -272,11 +274,11 @@ public class P1621_NumberOfSetsOfKNonOverlappingLineSegments {
 //        System.out.println(p.C(4, 2));
 //        System.out.println(p.C(12, 3));
 //        System.out.println(p.C(15, 7));
-        Util.assertValue(11628, p.numberOfSetsTest(13, 7));
+        Util.assertEqual(11628, p.numberOfSetsTest(13, 7));
 //        System.out.println("正确：" + 11628);
 //        System.out.println("实际：" + p.numberOfSetsTest(13, 7));
 //        System.out.println("5：" + p.numberOfSets5(13, 7));
-        Util.assertValue(497827474, p.numberOfSetsTest(130, 70));
+        Util.assertEqual(497827474, p.numberOfSetsTest(130, 70));
 //        System.out.println("正确：" + 497827474);
 //        System.out.println("实际：" + p.numberOfSetsTest(130, 70));
 //        System.out.println("5：" + p.numberOfSets5(130, 7));

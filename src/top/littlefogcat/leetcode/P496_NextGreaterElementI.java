@@ -3,7 +3,7 @@ package top.littlefogcat.leetcode;
 public class P496_NextGreaterElementI {
 
     /**
-     * two for loops
+     * two `for` loops
      */
     class Solution {
         public int[] nextGreaterElement(int[] nums1, int[] nums2) {

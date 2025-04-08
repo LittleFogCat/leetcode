@@ -5,7 +5,7 @@ import top.littlefogcat.leetcode.structs.heap.TopKHeap;
 import java.util.Arrays;
 import java.util.Random;
 
-import static top.littlefogcat.leetcode.Util.swap;
+import static top.littlefogcat.leetcode.utils.Util.swap;
 
 public class P215_KthLargestElementInAnArray {
     public int findKthLargest0(int[] nums, int k) {

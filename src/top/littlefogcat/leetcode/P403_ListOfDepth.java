@@ -2,7 +2,7 @@ package top.littlefogcat.leetcode;
 
 import java.util.*;
 
-public class P0403_ListOfDepth {
+public class P403_ListOfDepth {
     public ListNode[] listOfDepth1(TreeNode tree) {
         List<List<TreeNode>> levels = new ArrayList<>();
 

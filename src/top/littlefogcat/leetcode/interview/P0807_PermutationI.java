@@ -1,9 +1,6 @@
 package top.littlefogcat.leetcode.interview;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static top.littlefogcat.leetcode.Util.swap;
+import static top.littlefogcat.leetcode.utils.Util.swap;
 
 public class P0807_PermutationI {
     int p = 0;

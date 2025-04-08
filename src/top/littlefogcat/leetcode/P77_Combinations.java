@@ -1,10 +1,8 @@
 package top.littlefogcat.leetcode;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.UnaryOperator;
 
-import static top.littlefogcat.leetcode.Util.swap;
+import static top.littlefogcat.leetcode.utils.Util.swap;
 
 public class P77_Combinations {
     // ------------ 动态规划 ---------------

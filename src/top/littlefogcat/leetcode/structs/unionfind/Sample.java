@@ -1,5 +1,7 @@
 package top.littlefogcat.leetcode.structs.unionfind;
 
+import top.littlefogcat.leetcode.structs.UnionFind;
+
 /**
  * 例题
  * > 输入一个整型数组`int[] cities`，每个元素代表一个城市；
@@ -9,7 +11,7 @@ package top.littlefogcat.leetcode.structs.unionfind;
  */
 public class Sample {
     public int countRoadSystem(int[] cities, int[][] roads) {
-        UnionFind uf = new UnionFind(cities);
+        UnionFindInt uf = new UnionFindInt(cities);
         for (int[] road : roads) uf.union(road[0], road[1]);
         return uf.size();
     }

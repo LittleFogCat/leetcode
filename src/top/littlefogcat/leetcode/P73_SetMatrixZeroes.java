@@ -1,8 +1,6 @@
 package top.littlefogcat.leetcode;
 
-import java.util.Arrays;
-
-import static top.littlefogcat.leetcode.Util.matrixToString;
+import static top.littlefogcat.leetcode.utils.Util.matrixToString;
 
 public class P73_SetMatrixZeroes {
     public void setZeroes1(int[][] matrix) {

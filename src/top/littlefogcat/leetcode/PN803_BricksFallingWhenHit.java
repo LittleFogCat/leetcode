@@ -1,7 +1,9 @@
 package top.littlefogcat.leetcode;
 
+// N: Not resolved
 // todo 不会
-public class P803_BricksFallingWhenHit {
+// todo 考虑使用并查集？有空再做
+public class PN803_BricksFallingWhenHit {
     int left = 1 << 3, top = 1 << 2, right = 1 << 1, bottom = 1, none = 0;
 
     public int[] hitBricks(int[][] grid, int[][] hits) {

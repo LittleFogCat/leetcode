@@ -1,10 +1,19 @@
 package top.littlefogcat.leetcode;
 
-import top.littlefogcat.leetcode.structs.unionfind.UnionFind;
+import top.littlefogcat.leetcode.structs.UnionFind;
 import top.littlefogcat.leetcode.structs.unionfind.UnionFindArray;
 
 import java.util.*;
 
+/**
+ * 思路：
+ * 对于同一行或同一列的石子可以看做一个集合，则：
+ * 可以移除的做大数量 = 总数量 - 集合数；
+ * <p>
+ * 典型的“合并两个元素所在集合”，考虑使用并查集。
+ * <p>
+ * 遍历数组stones，对于每一个石子{x, y}，天然都属于两个集合："第x行"、"第y列"。于是，将"第x行"与"第y列"这两个集合合并成一个新的集合即可。
+ */
 public class P947_MostStonesRemovedWithSameRowOrColumn {
     // --------------- HashMap -------------------
 
@@ -96,12 +105,13 @@ public class P947_MostStonesRemovedWithSameRowOrColumn {
         }
     }
 
-    // ---------------- 并查集OOP --------------------
-
-    public int removeStones2(int[][] stones) {
-        UnionFind uf = new UnionFind(new int[0]);
+    // --------------- 并查集 ---------------
+    public int removeStones11(int[][] stones) {
+        UnionFind<Integer> uf = new UnionFind<>();
         for (int[] stone : stones) {
-            uf.union(stone[0], stone[1] + 10000);
+            int x = stone[0];
+            int y = stone[1];
+            uf.union(x, -y - 1); // 合并"第x行"与"第y列"，其中用负数代替第y列
         }
         return stones.length - uf.size();
     }
