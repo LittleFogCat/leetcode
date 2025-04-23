@@ -2,9 +2,8 @@ package top.littlefogcat.leetcode.utils;
 
 import top.littlefogcat.leetcode.ListNode;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 public class Util {
@@ -260,6 +259,7 @@ public class Util {
     public static void printlnWithColor(String s, int color) {
         System.out.println("\033[1;" + color + "m" + s + "\033[0m ");
     }
+
     public static void printWithColor(String s, int color) {
         System.out.print("\033[1;" + color + "m" + s + "\033[0m ");
     }
@@ -293,5 +293,61 @@ public class Util {
         for (char[] line : matrix) {
             System.out.println(Arrays.toString(line));
         }
+    }
+
+    public static int[][] convertTo2dIntArray(String str) {
+        // 去掉最外层的方括号
+        String innerStr = str.substring(1, str.length() - 1);
+
+        // 如果字符串为空，返回空数组
+        if (innerStr.isEmpty()) {
+            return new int[0][0];
+        }
+
+        // 按照 "],[", 分割成多个子数组
+        String[] subArrays = innerStr.split("\\],\\[");
+
+        // 创建二维数组
+        int[][] result = new int[subArrays.length][];
+
+        for (int i = 0; i < subArrays.length; i++) {
+            // 去掉子数组的方括号
+            String subArrayStr = subArrays[i].replaceAll("^\\[|\\]$", "");
+
+            // 按照逗号分割成单个整数
+            String[] elements = subArrayStr.split(",");
+
+            // 创建子数组并填充
+            int[] subArray = new int[elements.length];
+            for (int j = 0; j < elements.length; j++) {
+                subArray[j] = Integer.parseInt(elements[j].trim());
+            }
+
+            result[i] = subArray;
+        }
+
+        return result;
+    }
+
+
+    public static int[][] read2dIntArrayFromFile(String str) {
+        return convertTo2dIntArray(readFile(str));
+    }
+
+    public static String readFile(String file) {
+        File f = new File("files/" + file);
+        StringBuilder content = new StringBuilder();
+        String line;
+        try (BufferedReader reader = new BufferedReader(new FileReader(f))) {
+            while ((line = reader.readLine()) != null) {
+                content.append(line);
+                content.append("\n");
+            }
+            content.setLength(content.length() - 1);
+            return content.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
